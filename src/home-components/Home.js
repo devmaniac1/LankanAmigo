@@ -21,6 +21,7 @@ import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Autocomplete, useJsApiLoader } from "@react-google-maps/api";
 import Navbar from "./Navbar";
+import NavBar from "../Components/NavBar.js";
 import { useTranslation } from "react-i18next";
 
 // import { useTranslation } from "react-i18next";
@@ -28,68 +29,52 @@ import { useTranslation } from "react-i18next";
 function App() {
   return (
     <div className="app">
-      <Navbar />
-
+      <NavBar
+        navList={["Home", "Features", "Team", "Ask Amigo", "Contact"]}
+        navName={"Lankan Amigo"}
+      />
       <Header />
-
       <Services />
       <HowItWorks />
       <div style={{ backgroundColor: "#fff" }}>
         <PopularDestination />
       </div>
-
       <Footer />
       <KommunicateChat />
     </div>
   );
 }
 
-function NavBar() {
-  const { t } = useTranslation();
+// function NavBar() {
+//   const navList = ["Home", "Features", "Team", "Ask Amigo", "Contact"];
 
-  return (
-    <div className="main--navigation">
-      <h4>Lankan Amigo</h4>
-
-      <nav>
-        <ul>
-          <li>Home</li>
-
-          <li>Feature</li>
-
-          <li>Team</li>
-
-          <li>Ask Amigo</li>
-
-          <li>Contact</li>
-        </ul>
-      </nav>
-
-      <div style={{ display: "flex", alignItems: "center", gap: "1.6rem" }}>
-        <Button
-          sx={{
-            fontFamily: "Poppins",
-            fontSize: "2.4rem",
-            margin: "0",
-            padding: "0",
-          }}
-        >
-          Sign Up
-        </Button>
-        <Button
-          sx={{
-            fontFamily: "Poppins",
-            fontSize: "2.4rem",
-            margin: "0",
-            padding: "0",
-          }}
-        >
-          Login{" "}
-        </Button>
-      </div>
-    </div>
-  );
-}
+//   return (
+//     <div className="main--navigation">
+//       <h4>Lankan Amigo</h4>
+//       <nav>
+//         <ul>
+//           {navList.map((navItem) => (
+//             <li>{navItem}</li>
+//           ))}
+//         </ul>
+//       </nav>
+//       <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         fill="none"
+//         viewBox="0 0 24 24"
+//         strokeWidth={1.5}
+//         stroke="currentColor"
+//         className="navIcon"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+//         />
+//       </svg>
+//     </div>
+//   );
+// }
 
 function Header() {
   const { t } = useTranslation();
